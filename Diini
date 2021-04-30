@@ -1,0 +1,116 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace spel1
+{
+    public partial class Form1 : Form
+    {
+        Random antal = new Random();
+        int val = 0;
+
+     
+
+        public Form1()
+        {
+            InitializeComponent();
+        }
+
+      
+
+
+        private void omSpeletToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("välkommen till lotteri spelet tryck på knappen och du kanske vinner spelet", "om");
+            
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            generatenumbers();
+
+
+        }
+     
+            private void generatenumbers()
+            {
+                val = antal.Next(1, 40);
+                num1.Text = val.ToString();
+            if (num1.Text == num6.Text)
+
+            {
+                
+
+                MessageBox.Show("game over");
+                
+            }
+
+                
+
+
+                val = antal.Next(1, 40);
+                while (val.ToString().Equals(num1.Text))
+                    val = antal.Next(1, 40);
+                num2.Text = val.ToString();
+
+                val = antal.Next(1, 40);
+                while (val.ToString().Equals(num1.Text) || val.ToString().Equals(num2.Text))
+                    val = antal.Next(1, 40);
+                num3.Text = val.ToString();
+
+                val = antal.Next(1, 40);
+                while (val.ToString().Equals(num1.Text) || val.ToString().Equals(num2.Text) || val.ToString().Equals(num3.Text))
+                    val = antal.Next(1, 40);
+                num4.Text = val.ToString();
+
+                val = antal.Next(1, 40);
+                while (val.ToString().Equals(num1.Text) || val.ToString().Equals(num2.Text) || val.ToString().Equals(num3.Text) || val.ToString().Equals(num4.Text))
+                    val = antal.Next(1, 40);
+                num5.Text = val.ToString();
+
+
+                val = antal.Next(1, 25);
+                num6.Text = val.ToString();
+                if (num6.Text == num2.Text || num6.Text == num3.Text || num6.Text == num4.Text || num6.Text == num5.Text)
+                {
+                    MessageBox.Show("grattis du fick 10 extra poäng detta kan hjälpa dig få segern");
+
+                
+                }
+
+
+
+            }
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void num3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        
+        private void num2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+     
+
+        private void omspeletToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("välkommen till lotteri spelet tryck på knappen och du kanske vinner spelet", "om");
+        }
+
+       
+
+    }
+}
